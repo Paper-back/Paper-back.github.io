@@ -1,28 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hexo博客搭建</title>
-    <url>/2021/05/26/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h2 id="git-clone-出现fatal-unable-to-access-‘https-github-类错误解决方法"><a href="#git-clone-出现fatal-unable-to-access-‘https-github-类错误解决方法" class="headerlink" title="git clone 出现fatal: unable to access ‘https://github 类错误解决方法"></a>git clone 出现fatal: unable to access ‘<a href="https://github/">https://github</a> 类错误解决方法</h2><p>将命令行里的http改为git重新执行。</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-  </entry>
-  <entry>
     <title>城市与记忆 之一</title>
     <url>/2021/05/22/%E5%9F%8E%E5%B8%82%E4%B8%8E%E8%AE%B0%E5%BF%86%E4%B9%8B%E4%B8%80/</url>
     <content><![CDATA[<p>一直在相同的路上行走，目光艰难聚集在一个物体上，身旁全都是石头和树木，只是在认出一处事物能表明另一个事物、另一个故事和感悟时才会驻目观察。草坪上的足迹说明人来人往，一条狭长水道的泥沼说明一脉水源相通；梨花意味着冬季的结束。其余的一切都寂静无声，可以相互感知。石头和树木只是石头和树木。</p>
 <hr>
-]]></content>
-      <categories>
-        <category>读的见的城市</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>城市与记忆之三</title>
-    <url>/2021/05/25/%E5%9F%8E%E5%B8%82%E4%B8%8E%E8%AE%B0%E5%BF%86%E4%B9%8B%E4%B8%89/</url>
-    <content><![CDATA[<p>描述我现在居住的城市有一种方法。你可以说，城墙上高耸的金属建筑物，他们锈迹斑斑，向来这里的赶路人说这并不是我的全部；城中几座刚不久被翻新的钢索桥横跨这条江，河水流进四周的村落，主干穿过城市的主体。在<span id="more"></span>很多人的想象中，这座城市是为了这一江水而诞生的，在它出现之前之后，河水永远从接近天边的天花石上顺流而下，随着时间的流动，只不过沿途多了几处建筑，一些人罢了。不同的是，这个地方越来越多的少女会嫁给其他地方的小伙子，但每当谈及这里，她们的笑容里充满幸福：曾经在冬月的黄昏到来、白昼渐短的时候，她们曾在落寞的街头享受过一餐盛宴并且彼时感到快乐。</p>
 ]]></content>
       <categories>
         <category>读的见的城市</category>
@@ -36,6 +18,24 @@
 
 <p>太阳在天空中位置的变化，哭泣的姑娘滴在叶片上的泪珠，她在埋怨深爱的男孩，远处轨道驶过的火车突然轰鸣的程度和人们梦中惊醒的恼怒，飘动在锅灶和木柴之间忽明忽暗的火苗的燃烧和围在火炉旁人们冰凉的手掌。</p>
 <p>卡尔维诺告诉我，”这地方像一块海绵，吸汲着这些不断涌流的记忆的潮水，并随之膨胀着。这些过去被像手纹一样藏起来，它被写在青石板街道的角落，窗口的护栏，楼梯的扶手上。” 除非时光倒流，太阳西升东落，泪水凝固，炊烟消尽，这些痕迹永远在这里。</p>
+]]></content>
+      <categories>
+        <category>读的见的城市</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>hexo博客搭建</title>
+    <url>/2021/05/26/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h2 id="git-clone-出现fatal-unable-to-access-‘https-github-类错误解决方法"><a href="#git-clone-出现fatal-unable-to-access-‘https-github-类错误解决方法" class="headerlink" title="git clone 出现fatal: unable to access ‘https://github 类错误解决方法"></a>git clone 出现fatal: unable to access ‘<a href="https://github/">https://github</a> 类错误解决方法</h2><p>将命令行里的http改为git重新执行。</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>城市与记忆之三</title>
+    <url>/2021/05/25/%E5%9F%8E%E5%B8%82%E4%B8%8E%E8%AE%B0%E5%BF%86%E4%B9%8B%E4%B8%89/</url>
+    <content><![CDATA[<p>描述我现在居住的城市有一种方法。你可以说，城墙上高耸的金属建筑物，他们锈迹斑斑，向来这里的赶路人说这并不是我的全部；城中几座刚不久被翻新的钢索桥横跨这条江，河水流进四周的村落，主干穿过城市的主体。在<span id="more"></span>很多人的想象中，这座城市是为了这一江水而诞生的，在它出现之前之后，河水永远从接近天边的天花石上顺流而下，随着时间的流动，只不过沿途多了几处建筑，一些人罢了。不同的是，这个地方越来越多的少女会嫁给其他地方的小伙子，但每当谈及这里，她们的笑容里充满幸福：曾经在冬月的黄昏到来、白昼渐短的时候，她们曾在落寞的街头享受过一餐盛宴并且彼时感到快乐。</p>
 ]]></content>
       <categories>
         <category>读的见的城市</category>
