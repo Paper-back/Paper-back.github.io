@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo博客搭建</title>
+    <url>/2021/05/26/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h2 id="git-clone-出现fatal-unable-to-access-‘https-github-类错误解决方法"><a href="#git-clone-出现fatal-unable-to-access-‘https-github-类错误解决方法" class="headerlink" title="git clone 出现fatal: unable to access ‘https://github 类错误解决方法"></a>git clone 出现fatal: unable to access ‘<a href="https://github/">https://github</a> 类错误解决方法</h2><p>将命令行里的http改为git重新执行。</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+  </entry>
+  <entry>
     <title>城市与记忆 之一</title>
     <url>/2021/05/22/%E5%9F%8E%E5%B8%82%E4%B8%8E%E8%AE%B0%E5%BF%86%E4%B9%8B%E4%B8%80/</url>
     <content><![CDATA[<p>一直在相同的路上行走，目光艰难聚集在一个物体上，身旁全都是石头和树木，只是在认出一处事物能表明另一个事物、另一个故事和感悟时才会驻目观察。草坪上的足迹说明人来人往，一条狭长水道的泥沼说明一脉水源相通；梨花意味着冬季的结束。其余的一切都寂静无声，可以相互感知。石头和树木只是石头和树木。</p>
@@ -30,14 +39,6 @@
 ]]></content>
       <categories>
         <category>读的见的城市</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>hexo博客搭建</title>
-    <url>/2021/05/26/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Hexo</category>
       </categories>
   </entry>
   <entry>
