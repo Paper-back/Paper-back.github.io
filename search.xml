@@ -29,6 +29,19 @@
       </categories>
   </entry>
   <entry>
+    <title>城市与记忆 之二</title>
+    <url>/2021/05/25/%E5%9F%8E%E5%B8%82%E4%B8%8E%E8%AE%B0%E5%BF%86%E4%B9%8B%E4%BA%8C/</url>
+    <content><![CDATA[<p>我的老友们，无论我怎样努力，都难以描述出那座落在迷踪森林中的城市。我可以告诉你，铺在崎岖小路上的青石板有多少块，高低起伏的街道有多少级台阶，每一间小屋上瓦片的颜色和数量。但是，这其实等于什么都没告诉你。令我流连忘返的不是这些，而是她的每一草一木与曾经往事之间的联系：</p>
+<span id="more"></span>
+
+<p>太阳在天空中位置的变化，哭泣的姑娘滴在叶片上的泪珠，她在埋怨深爱的男孩，远处轨道驶过的火车突然轰鸣的程度和人们梦中惊醒的恼怒，飘动在锅灶和木柴之间忽明忽暗的火苗的燃烧和围在火炉旁人们冰凉的手掌。</p>
+<p>卡尔维诺告诉我，”这地方像一块海绵，吸汲着这些不断涌流的记忆的潮水，并随之膨胀着。这些过去被像手纹一样藏起来，它被写在青石板街道的角落，窗口的护栏，楼梯的扶手上。” 除非时光倒流，太阳西升东落，泪水凝固，炊烟消尽，这些痕迹永远在这里。</p>
+]]></content>
+      <categories>
+        <category>读的见的城市</category>
+      </categories>
+  </entry>
+  <entry>
     <title>链表-递归</title>
     <url>/2021/05/27/%E9%93%BE%E8%A1%A8-%E9%80%92%E5%BD%92/</url>
     <content><![CDATA[<p>总结涉及到递归算法的链表相关基础题</p>
@@ -52,6 +65,8 @@
 <p>画解：</p>
 <p><img src="../images/%E9%93%BE%E8%A1%A8-%E9%80%92%E5%BD%92/%E9%93%BE%E8%A1%A8%E4%BA%A4%E6%8D%A2.png"></p>
 <p><img src="../images/%E9%93%BE%E8%A1%A8-%E9%80%92%E5%BD%92/%E9%80%92%E5%BD%92%E8%BF%87%E7%A8%8B-1622117404317.png"></p>
+<span id="more"></span>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">swapPairs</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//终止条件 递归至最后一个执行单元</span></span><br><span class="line">        <span class="keyword">if</span>(head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="comment">//第一个返回值</span></span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//每一个小执行单元的过程</span></span><br><span class="line">        ListNode next = head.next;</span><br><span class="line">        head.next = swapPairs(next.next);</span><br><span class="line">        next.next = head;</span><br><span class="line">        <span class="comment">//返回结果，意义与终止条件中 head相同</span></span><br><span class="line">        <span class="keyword">return</span> next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
@@ -94,19 +109,6 @@
 ]]></content>
       <categories>
         <category>数据结构</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>城市与记忆 之二</title>
-    <url>/2021/05/25/%E5%9F%8E%E5%B8%82%E4%B8%8E%E8%AE%B0%E5%BF%86%E4%B9%8B%E4%BA%8C/</url>
-    <content><![CDATA[<p>我的老友们，无论我怎样努力，都难以描述出那座落在迷踪森林中的城市。我可以告诉你，铺在崎岖小路上的青石板有多少块，高低起伏的街道有多少级台阶，每一间小屋上瓦片的颜色和数量。但是，这其实等于什么都没告诉你。令我流连忘返的不是这些，而是她的每一草一木与曾经往事之间的联系：</p>
-<span id="more"></span>
-
-<p>太阳在天空中位置的变化，哭泣的姑娘滴在叶片上的泪珠，她在埋怨深爱的男孩，远处轨道驶过的火车突然轰鸣的程度和人们梦中惊醒的恼怒，飘动在锅灶和木柴之间忽明忽暗的火苗的燃烧和围在火炉旁人们冰凉的手掌。</p>
-<p>卡尔维诺告诉我，”这地方像一块海绵，吸汲着这些不断涌流的记忆的潮水，并随之膨胀着。这些过去被像手纹一样藏起来，它被写在青石板街道的角落，窗口的护栏，楼梯的扶手上。” 除非时光倒流，太阳西升东落，泪水凝固，炊烟消尽，这些痕迹永远在这里。</p>
-]]></content>
-      <categories>
-        <category>读的见的城市</category>
       </categories>
   </entry>
 </search>
