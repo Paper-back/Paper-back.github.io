@@ -124,7 +124,9 @@
   <entry>
     <title>栈-基本操作</title>
     <url>/2021/05/30/%E6%A0%88-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h2 id="栈-辅助栈"><a href="#栈-辅助栈" class="headerlink" title="栈-辅助栈"></a>栈-辅助栈</h2><h3 id="用队列来实现栈"><a href="#用队列来实现栈" class="headerlink" title="用队列来实现栈"></a>用队列来实现栈</h3><blockquote>
+    <content><![CDATA[<p>总结栈的基本操作和java实现过程中相关知识学习</p>
+<span id="more"></span>
+<h2 id="栈-辅助栈"><a href="#栈-辅助栈" class="headerlink" title="栈-辅助栈"></a>栈-辅助栈</h2><h3 id="用队列来实现栈"><a href="#用队列来实现栈" class="headerlink" title="用队列来实现栈"></a>用队列来实现栈</h3><blockquote>
 <p>请你仅使用两个队列实现一个后入先出（LIFO）的栈，并支持普通队列的全部四种操作（push、top、pop 和 empty）。</p>
 <p>实现 MyStack 类：</p>
 <p>void push(int x) 将元素 x 压入栈顶。<br>          int pop() 移除并返回栈顶元素。<br>          int top() 返回栈顶元素。<br>          boolean empty() 如果栈是空的，返回 true ；否则，返回 false 。</p>
