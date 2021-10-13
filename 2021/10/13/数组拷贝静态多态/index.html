@@ -20,27 +20,27 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;paper-back.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Muse&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
-<meta name="description" content="我的老友们，无论我怎样努力，都难以描述出那座落在迷踪森林中的城市。我可以告诉你，铺在崎岖小路上的青石板有多少块，高低起伏的街道有多少级台阶，每一间小屋上瓦片的颜色和数量。但是，这其实等于什么都没告诉你。令我流连忘返的不是这些，而是她的每一草一木与曾经往事之间的联系：">
+<meta name="description" content="数组拷贝 静态字段与静态方法 多态 数组拷贝在java中有两种数组拷贝的含义  引用拷贝，将一个数组变量拷贝到另一个数组变量，这时两个变量将引用同一个数组 如果希望将一个数组里的所有的值拷贝到一个新的数组当中，需要使用Arrays类的copyof方法int[] copiedNumbers &#x3D; Arrays.copyof(numbers,numbers.length)第一个参数是要copy的数组，第">
 <meta property="og:type" content="article">
-<meta property="og:title" content="城市与记忆 之二">
-<meta property="og:url" content="http://paper-back.github.io/2021/05/25/%E5%9F%8E%E5%B8%82%E4%B8%8E%E8%AE%B0%E5%BF%86%E4%B9%8B%E4%BA%8C/index.html">
+<meta property="og:title" content="数组拷贝静态多态">
+<meta property="og:url" content="http://paper-back.github.io/2021/10/13/%E6%95%B0%E7%BB%84%E6%8B%B7%E8%B4%9D%E9%9D%99%E6%80%81%E5%A4%9A%E6%80%81/index.html">
 <meta property="og:site_name" content="杂忘录">
-<meta property="og:description" content="我的老友们，无论我怎样努力，都难以描述出那座落在迷踪森林中的城市。我可以告诉你，铺在崎岖小路上的青石板有多少块，高低起伏的街道有多少级台阶，每一间小屋上瓦片的颜色和数量。但是，这其实等于什么都没告诉你。令我流连忘返的不是这些，而是她的每一草一木与曾经往事之间的联系：">
+<meta property="og:description" content="数组拷贝 静态字段与静态方法 多态 数组拷贝在java中有两种数组拷贝的含义  引用拷贝，将一个数组变量拷贝到另一个数组变量，这时两个变量将引用同一个数组 如果希望将一个数组里的所有的值拷贝到一个新的数组当中，需要使用Arrays类的copyof方法int[] copiedNumbers &#x3D; Arrays.copyof(numbers,numbers.length)第一个参数是要copy的数组，第">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-05-25T08:11:42.000Z">
-<meta property="article:modified_time" content="2021-05-25T14:12:04.571Z">
+<meta property="article:published_time" content="2021-10-13T14:09:22.000Z">
+<meta property="article:modified_time" content="2021-10-13T14:12:13.240Z">
 <meta property="article:author" content="遥山寒">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://paper-back.github.io/2021/05/25/%E5%9F%8E%E5%B8%82%E4%B8%8E%E8%AE%B0%E5%BF%86%E4%B9%8B%E4%BA%8C/">
+<link rel="canonical" href="http://paper-back.github.io/2021/10/13/%E6%95%B0%E7%BB%84%E6%8B%B7%E8%B4%9D%E9%9D%99%E6%80%81%E5%A4%9A%E6%80%81/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;paper-back.github.io&#x2F;2021&#x2F;05&#x2F;25&#x2F;%E5%9F%8E%E5%B8%82%E4%B8%8E%E8%AE%B0%E5%BF%86%E4%B9%8B%E4%BA%8C&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;05&#x2F;25&#x2F;城市与记忆之二&#x2F;&quot;,&quot;title&quot;:&quot;城市与记忆 之二&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;paper-back.github.io&#x2F;2021&#x2F;10&#x2F;13&#x2F;%E6%95%B0%E7%BB%84%E6%8B%B7%E8%B4%9D%E9%9D%99%E6%80%81%E5%A4%9A%E6%80%81&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;10&#x2F;13&#x2F;数组拷贝静态多态&#x2F;&quot;,&quot;title&quot;:&quot;数组拷贝静态多态&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>城市与记忆 之二 | 杂忘录</title><script src="/js/config.js"></script>
+<title>数组拷贝静态多态 | 杂忘录</title><script src="/js/config.js"></script>
   
 
 
@@ -134,7 +134,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -147,6 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E6%8B%B7%E8%B4%9D-%E9%9D%99%E6%80%81%E5%AD%97%E6%AE%B5%E4%B8%8E%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95-%E5%A4%9A%E6%80%81"><span class="nav-number">1.</span> <span class="nav-text">数组拷贝 静态字段与静态方法 多态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E6%8B%B7%E8%B4%9D"><span class="nav-number">1.1.</span> <span class="nav-text">数组拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%AD%97%E6%AE%B5%E4%B8%8E%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">静态字段与静态方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%80%81"><span class="nav-number">1.3.</span> <span class="nav-text">多态</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -219,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://paper-back.github.io/2021/05/25/%E5%9F%8E%E5%B8%82%E4%B8%8E%E8%AE%B0%E5%BF%86%E4%B9%8B%E4%BA%8C/">
+    <link itemprop="mainEntityOfPage" href="http://paper-back.github.io/2021/10/13/%E6%95%B0%E7%BB%84%E6%8B%B7%E8%B4%9D%E9%9D%99%E6%80%81%E5%A4%9A%E6%80%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -232,7 +233,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          城市与记忆 之二
+          数组拷贝静态多态
         </h1>
 
         <div class="post-meta-container">
@@ -244,7 +245,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-05-25 16:11:42 / 修改时间：22:12:04" itemprop="dateCreated datePublished" datetime="2021-05-25T16:11:42+08:00">2021-05-25</time>
+      <time title="创建时间：2021-10-13 22:09:22 / 修改时间：22:12:13" itemprop="dateCreated datePublished" datetime="2021-10-13T22:09:22+08:00">2021-10-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -252,7 +253,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AF%BB%E7%9A%84%E8%A7%81%E7%9A%84%E5%9F%8E%E5%B8%82/" itemprop="url" rel="index"><span itemprop="name">读的见的城市</span></a>
+          <a href="/categories/Javase%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Javase笔记</span></a>
         </span>
     </span>
 
@@ -271,7 +272,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>346</span>
+      <span>1.4k</span>
     </span>
 </div>
 
@@ -282,11 +283,37 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>我的老友们，无论我怎样努力，都难以描述出那座落在迷踪森林中的城市。我可以告诉你，铺在崎岖小路上的青石板有多少块，高低起伏的街道有多少级台阶，每一间小屋上瓦片的颜色和数量。但是，这其实等于什么都没告诉你。令我流连忘返的不是这些，而是她的每一草一木与曾经往事之间的联系：</p>
+        <h2 id="数组拷贝-静态字段与静态方法-多态"><a href="#数组拷贝-静态字段与静态方法-多态" class="headerlink" title="数组拷贝 静态字段与静态方法 多态"></a>数组拷贝 静态字段与静态方法 多态</h2><hr>
+<h3 id="数组拷贝"><a href="#数组拷贝" class="headerlink" title="数组拷贝"></a>数组拷贝</h3><p><strong>在java中有两种数组拷贝的含义</strong></p>
+<ol>
+<li>引用拷贝，将一个数组变量拷贝到另一个数组变量，这时<strong>两个变量将引用同一个数组</strong></li>
+<li>如果希望将一个数组里的所有的值拷贝到一个新的数组当中，需要使用<strong>Arrays</strong>类的<strong>copyof</strong>方法<code>int[] copiedNumbers = Arrays.copyof(numbers,numbers.length)</code>第一个参数是要copy的数组，第二个参数是新数组的长度。这个方法通常用来增加数组的大小。 如果数组元素是数值型，额外的元素被赋值为0.布尔型则被赋值为false。如果新数组的长度比原始数组小，则只拷贝前面的值。</li>
+</ol>
 <span id="more"></span>
 
-<p>太阳在天空中位置的变化，哭泣的姑娘滴在叶片上的泪珠，她在埋怨深爱的男孩，远处轨道驶过的火车突然轰鸣的程度和人们梦中惊醒的恼怒，飘动在锅灶和木柴之间忽明忽暗的火苗的燃烧和围在火炉旁人们冰凉的手掌。</p>
-<p>卡尔维诺告诉我，”这地方像一块海绵，吸汲着这些不断涌流的记忆的潮水，并随之膨胀着。这些过去被像手纹一样藏起来，它被写在青石板街道的角落，窗口的护栏，楼梯的扶手上。” 除非时光倒流，太阳西升东落，泪水凝固，炊烟消尽，这些痕迹永远在这里。</p>
+<hr>
+<h3 id="静态字段与静态方法"><a href="#静态字段与静态方法" class="headerlink" title="静态字段与静态方法"></a>静态字段与静态方法</h3><p>在java语言中，静态的标志修饰符是static，下面讨论static的几种含义</p>
+<ol>
+<li>静态字段<br>一个类中，只能将一个字段定义为static。<br>对于非静态实例字段，每个对象都有自己的一个副本。在statiic的修饰下，使得该类的所有实例对象共享一个静态字段。<strong>即使没有该类的对象，静态字段依然存在，它属于类，而不属于任何单个的对象</strong></li>
+</ol>
+<ul>
+<li> 静态常量<br>静态常量比变量更加常用，比如经常用到的<code>System.out</code>，他在System类中声明如下<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> System</span><br><span class="line">&#123;...</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> PrinStream out = ...</span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+在程序中，可以用类名System.out来访问这个常量。<br>由于每个类的对象都可以修改公共字段，但<strong>公共常量</strong>（即fanal字段）却没问题，out被声明为fanal，所以不允许它重新赋值。</li>
+</ul>
+<ol start="2">
+<li>静态方法<br>静态方法同样属于类，是不在对象上执行的方法。例如Math类的pow方法就是一个静态方法<code>Math.pow(x,a)</code>(计算x的a次方)，pow在完成运算是，并不使用任何Math对象。<strong>换句话说。它没有隐式参数（this）</strong><br>正是由于这一特点，静态方法不能访问非静态的实例字段，因为它不是在对象上执行操作的。但静态方法可以访问静态字段。<br>所以在下面两种情况下可以使用静态方法：</li>
+</ol>
+<ul>
+<li>方法不需要访问对象状态，它所需要的所有参数都痛过显式参数提供（比如Math.pow(x,a)方法里的x，a）。</li>
+<li>方法只需要访问类的静态字段。<blockquote>
+<p><code>public static void main(String[] args)</code>中，main方法都被标记了static修饰符。这便是一个类中的<strong>静态方法</strong>，main方法不对任何对象进行操作，事实上，在启动程序的时候还没有任何对象。<strong>静态的main方法将执行并构造程序所需要的对象</strong>，每个类都可以有一个main方法，常用于对类进行单元测试。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>超类对象在任何地方都可以使用子类对象替换</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Emloyee staff = <span class="keyword">new</span> Emloyee(...);</span><br><span class="line">Manager boss = <span class="keyword">new</span> Manager(...);</span><br><span class="line">staff = boss(...);</span><br></pre></td></tr></table></figure>
+<p>虽然<strong>编译器只将staff看作是一个Emloyee（超类）对象</strong>，但staff和boss事实上引用同一对象new Manager（…)，超类对象已经被子类对象替换。<br>基于这一点，若setBonus是Manager的方法，则可以这样调用<code>boss.setBonus(6000)</code>但不能这样调用<code>staff.setBonus(6000)</code>,因为编译器会根据对象变量创建的初始编译类型来检查是否具有这个方法。   </p>
 
     </div>
 
@@ -300,14 +327,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/05/22/%E5%9F%8E%E5%B8%82%E4%B8%8E%E8%AE%B0%E5%BF%86%E4%B9%8B%E4%B8%80/" rel="prev" title="城市与记忆 之一">
-                  <i class="fa fa-chevron-left"></i> 城市与记忆 之一
+                <a href="/2021/07/14/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%90%8C%E6%AD%A5/" rel="prev" title="线程的同步">
+                  <i class="fa fa-chevron-left"></i> 线程的同步
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/05/25/%E5%9F%8E%E5%B8%82%E4%B8%8E%E8%AE%B0%E5%BF%86%E4%B9%8B%E4%B8%89/" rel="next" title="城市与记忆之三">
-                  城市与记忆之三 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
