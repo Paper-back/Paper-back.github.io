@@ -37,6 +37,25 @@
       </categories>
   </entry>
   <entry>
+    <title>hexo博客搭建</title>
+    <url>/2021/05/26/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h2 id="git-clone-出现fatal-unable-to-access-‘https-github-类错误解决方法"><a href="#git-clone-出现fatal-unable-to-access-‘https-github-类错误解决方法" class="headerlink" title="git clone 出现fatal: unable to access ‘https://github 类错误解决方法"></a>git clone 出现fatal: unable to access ‘<a href="https://github/">https://github</a> 类错误解决方法</h2><p>将命令行里的http改为git重新执行。</p>
+<hr>
+<h2 id="hexo-typora博客插入图片"><a href="#hexo-typora博客插入图片" class="headerlink" title="hexo + typora博客插入图片"></a>hexo + typora博客插入图片</h2><p>事先声明，所有博客文件均保存在 hexo/_posts/文件夹下</p>
+<p>首先在 hexo &gt; source目录下建一个文件夹叫images，用来保存博客中的图片。</p>
+<p>然后打开Typora的 文件 &gt; 偏好设置，进行如下设置。</p>
+<p><img src="/images/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/2019090318384447.png"></p>
+<p>这样的话所有的博客中的图片都将会保存到 /source/images/该博客md文件名/图片名称</p>
+<p>但是仅仅这样设置还不够，这样设置在typora中倒是能看图片了，但是使用的却是相对于当前md文件的相对路径，可是如果启动hexo，是要用服务器访问的，而服务器显然无法根据这个相对路径正确访问到图片，因此还需要在typora中进行进一步设置。</p>
+<p>在typora菜单栏点击 格式-&gt;图像-&gt;设置图片根目录，将hexo/source作为其根目录即可。</p>
+<p>一定要先设置了图片根目录后再插入图片，否则图片路径会不正确.</p>
+<hr>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+  </entry>
+  <entry>
     <title>创建线程的方式</title>
     <url>/2021/07/13/%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[<p>JAVA语言的JVM允许程序运行多个线程，它通过java.lang.Thread类来实现。</p>
@@ -93,25 +112,6 @@
 ]]></content>
       <categories>
         <category>JAVA</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>hexo博客搭建</title>
-    <url>/2021/05/26/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h2 id="git-clone-出现fatal-unable-to-access-‘https-github-类错误解决方法"><a href="#git-clone-出现fatal-unable-to-access-‘https-github-类错误解决方法" class="headerlink" title="git clone 出现fatal: unable to access ‘https://github 类错误解决方法"></a>git clone 出现fatal: unable to access ‘<a href="https://github/">https://github</a> 类错误解决方法</h2><p>将命令行里的http改为git重新执行。</p>
-<hr>
-<h2 id="hexo-typora博客插入图片"><a href="#hexo-typora博客插入图片" class="headerlink" title="hexo + typora博客插入图片"></a>hexo + typora博客插入图片</h2><p>事先声明，所有博客文件均保存在 hexo/_posts/文件夹下</p>
-<p>首先在 hexo &gt; source目录下建一个文件夹叫images，用来保存博客中的图片。</p>
-<p>然后打开Typora的 文件 &gt; 偏好设置，进行如下设置。</p>
-<p><img src="/images/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/2019090318384447.png"></p>
-<p>这样的话所有的博客中的图片都将会保存到 /source/images/该博客md文件名/图片名称</p>
-<p>但是仅仅这样设置还不够，这样设置在typora中倒是能看图片了，但是使用的却是相对于当前md文件的相对路径，可是如果启动hexo，是要用服务器访问的，而服务器显然无法根据这个相对路径正确访问到图片，因此还需要在typora中进行进一步设置。</p>
-<p>在typora菜单栏点击 格式-&gt;图像-&gt;设置图片根目录，将hexo/source作为其根目录即可。</p>
-<p>一定要先设置了图片根目录后再插入图片，否则图片路径会不正确.</p>
-<hr>
-]]></content>
-      <categories>
-        <category>Hexo</category>
       </categories>
   </entry>
   <entry>
@@ -229,19 +229,6 @@
       </categories>
   </entry>
   <entry>
-    <title>线程的同步</title>
-    <url>/2021/07/14/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%90%8C%E6%AD%A5/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>线程的生命周期</title>
-    <url>/2021/07/14/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>JAVA</category>
-      </categories>
-  </entry>
-  <entry>
     <title>栈-基本操作</title>
     <url>/2021/05/30/%E6%A0%88-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p>总结栈的基本操作和java实现过程中相关知识学习</p>
@@ -309,6 +296,19 @@
 ]]></content>
       <categories>
         <category>数据结构</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>线程的同步</title>
+    <url>/2021/07/14/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%90%8C%E6%AD%A5/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>线程的生命周期</title>
+    <url>/2021/07/14/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>JAVA</category>
       </categories>
   </entry>
   <entry>
