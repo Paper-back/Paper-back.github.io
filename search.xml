@@ -345,4 +345,40 @@
         <category>Javase笔记</category>
       </categories>
   </entry>
+  <entry>
+    <title>equals方法与相等测试 hashcode toString方法</title>
+    <url>/2021/10/16/equals%E6%96%B9%E6%B3%95%E4%B8%8E%E7%9B%B8%E7%AD%89%E6%B5%8B%E8%AF%95-hashcode-toString%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="equals方法与相等测试-hashcode-toString方法"><a href="#equals方法与相等测试-hashcode-toString方法" class="headerlink" title="equals方法与相等测试 hashcode toString方法"></a>equals方法与相等测试 hashcode toString方法</h2><h3 id="equals方法与相等测试"><a href="#equals方法与相等测试" class="headerlink" title="equals方法与相等测试"></a>equals方法与相等测试</h3><p>object类中的equals方法用于检测一个对象是否等于另一个对象。object类中实现它时效果等同于==操作符：确定两个对象引用是否相等。不过，在许多情况下，经常需要基于两个对象的状态检测其相等性，如果两个对象有相等的状态，则认为两个对象是相等的。<br>下面具体讨论调用equals方法进行相等测试的具体操作：</p>
+<span id="more"></span>
+
+<p>**首先需要明确，equals方法是个覆盖方法，签名要与object类中原方法相同</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Emloyee</span></span></span><br><span class="line"><span class="class"></span>&#123;  <span class="comment">//显式参数类型是Empioyee，没有覆盖object类中原方法，而是定义了一个无关的方法。</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span> <span class="params">(Employee other)</span></span>&#123; ...&#125;</span><br><span class="line">   </span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span> <span class="params">(Object other)</span></span>&#123; ...&#125;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面我们用员工示例展示equals方法的实现机制（如果两个员工对象的姓名，薪水和雇佣日期都一样，就认为它们是相等的）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object otherObject)</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">      <span class="comment">// 首先检查两个对象引用是否相同</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span> == otherObject) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">      <span class="comment">// 如果显参引用为null，返回false</span></span><br><span class="line">      <span class="keyword">if</span> (other0bject == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">      <span class="comment">// 如果两个对象不属于同一个类，必然不相等，返回false</span></span><br><span class="line">   <span class="number">1.</span> <span class="keyword">if</span> (getClass() != other0bject.getClass())</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">      <span class="comment">// 现在我们知道otherObject是一个非空Emloyee </span></span><br><span class="line">      Employee other=(Employee) otherObject;</span><br><span class="line">      <span class="comment">// 检测两个对象的状态是否相同</span></span><br><span class="line">   <span class="number">2.</span><span class="comment">// return name.equals(other.name) </span></span><br><span class="line">   <span class="number">3.</span> <span class="keyword">return</span> Object.equals(name,other.name)</span><br><span class="line">         &amp;&amp;salary == other.salary</span><br><span class="line">         &amp;&amp; Object.equals(other.hireDay);</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该过程中有几个值得讨论的方面。</p>
+<ol>
+<li>如果隐式和显式参数不属于同一个类，equals的处理方式是个存在争议的问题。在上例中，<strong>getClass方法返回一个对象所属的类</strong>，如果发现类不匹配会返回就会false。但是，我们经常也会见到使用instanceof进行检测：<br><code>if(!(otherObject instanceof Empoyee) return false;)</code><br>这种方式允许otherObject属于一个子类。随着介绍使用instanceof的麻烦和方便之处：</li>
+</ol>
+<ul>
+<li>Java语言规范要求equals方法具有<strong>对称性：对于任何引用x和y，当且仅当<code>y.equals(x)</code>返回true时，<code>x.equals(y)</code>返回true。</strong> 这当然很合理，你肯定不希望类库实现者一直需要纠结调用<code>y.equals(x)</code>还是<code>x.equals(y)</code>的问题。但是，当参数不属于同一个类的时候会对这个规则产生一些束缚。比如：e是Employee对象，m是一个Manager对象<br><code>e.equals(m)</code>如果用instanceof检测返回true的话，意味着反过来调用：<br><code>m.equals(e)</code>也需要返回true，这就对Manager类受到了束缚，它的equals方法可以将自己与任何一个Employee对象进行比较，而不考虑经理特有的信息。</li>
+<li>在有些情况下，在超类决定相等性概念，子类的对象可以据此进行相等性比较时，instanceof方法则更合适。比如集合：TreeSet 和 Hashset都是AbstactSet的具体子类，只是运用了不同的算法来查找集合元素，无论如何，你肯定希望能够任意比较两个集合。此时getClass就显得有问题，它违反了<strong>替换原则</strong>。</li>
+</ul>
+<ol start="2">
+<li>为了防备name或hireDay可能为null的情况，不直接采用<br><code>return name.equals(other.name)</code>需要使用Objects.equals方法：<blockquote>
+<p>如果两个参数都为null，Objects.equals(a，b)调用将返回true；如果其中一个参数为null，<br>则返回false；否则，如果两个参数都不为null，则调用a.equals(b)。因为比较的是引用变量，a.equals(b)和a==b作用相同</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h3 id="hashCode方法"><a href="#hashCode方法" class="headerlink" title="hashCode方法"></a>hashCode方法</h3><p>散列码（hash code）是由对象导出的一个整形值。equals相同，hashCode方法也定义在Object类中，子类可以覆盖此方法。<br>String类使用的用于散列码的算法是由<strong>内容</strong>导出的。<br>字符串构造器<code>var t = new String(&quot;...&quot;) </code>的散列码计算方式则不同。因为StringBuilder类中没有定义覆盖hashCode方法，而<strong>Object类的默认hashCode方法是从对象的存储地址得出散列码</strong><br>在调用hashCode方法时应注意以下几点：</p>
+<ol>
+<li>如果重新定义了equals方法，就必须重新定义hashCode方法。equals与hashCode的定义必须相同：如果x.equals(y)返回ture，那么x.hashCode()与y.hashCode()返回值相同。</li>
+<li>最好使用null安全的方法Object.hashCode（），如果参数为null，该方法会返回0。</li>
+</ol>
+<hr>
+<h3 id="toString方法"><a href="#toString方法" class="headerlink" title="toString方法"></a>toString方法</h3>]]></content>
+      <categories>
+        <category>Javase笔记</category>
+      </categories>
+  </entry>
 </search>

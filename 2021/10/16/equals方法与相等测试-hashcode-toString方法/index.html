@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;paper-back.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Muse&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="equals方法与相等测试 hashcode toString方法equals方法与相等测试object类中的equals方法用于检测一个对象是否等于另一个对象。object类中实现它时效果等同于&#x3D;&#x3D;操作符：确定两个对象引用是否相等。不过，在许多情况下，经常需要基于两个对象的状态检测其相等性，如果两个对象有相等的状态，则认为两个对象是相等的。下面具体讨论调用equals方法进行相等测试的具体操作：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="equals方法与相等测试 hashcode toString方法">
+<meta property="og:url" content="http://paper-back.github.io/2021/10/16/equals%E6%96%B9%E6%B3%95%E4%B8%8E%E7%9B%B8%E7%AD%89%E6%B5%8B%E8%AF%95-hashcode-toString%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="杂忘录">
+<meta property="og:description" content="equals方法与相等测试 hashcode toString方法equals方法与相等测试object类中的equals方法用于检测一个对象是否等于另一个对象。object类中实现它时效果等同于&#x3D;&#x3D;操作符：确定两个对象引用是否相等。不过，在许多情况下，经常需要基于两个对象的状态检测其相等性，如果两个对象有相等的状态，则认为两个对象是相等的。下面具体讨论调用equals方法进行相等测试的具体操作：">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-16T02:53:38.000Z">
+<meta property="article:modified_time" content="2021-10-16T14:52:02.072Z">
+<meta property="article:author" content="遥山寒">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://paper-back.github.io/2021/10/16/equals%E6%96%B9%E6%B3%95%E4%B8%8E%E7%9B%B8%E7%AD%89%E6%B5%8B%E8%AF%95-hashcode-toString%E6%96%B9%E6%B3%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;paper-back.github.io&#x2F;2021&#x2F;10&#x2F;16&#x2F;equals%E6%96%B9%E6%B3%95%E4%B8%8E%E7%9B%B8%E7%AD%89%E6%B5%8B%E8%AF%95-hashcode-toString%E6%96%B9%E6%B3%95&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;10&#x2F;16&#x2F;equals方法与相等测试-hashcode-toString方法&#x2F;&quot;,&quot;title&quot;:&quot;equals方法与相等测试 hashcode toString方法&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>equals方法与相等测试 hashcode toString方法 | 杂忘录</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">杂忘录</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">书咄咄，且休休，一丘一壑也风流</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#equals%E6%96%B9%E6%B3%95%E4%B8%8E%E7%9B%B8%E7%AD%89%E6%B5%8B%E8%AF%95-hashcode-toString%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">equals方法与相等测试 hashcode toString方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#equals%E6%96%B9%E6%B3%95%E4%B8%8E%E7%9B%B8%E7%AD%89%E6%B5%8B%E8%AF%95"><span class="nav-number">1.1.</span> <span class="nav-text">equals方法与相等测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashCode%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">hashCode方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toString%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">toString方法</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="遥山寒"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">遥山寒</p>
+  <div class="site-description" itemprop="description">一个单纯的流浪汉和能做决策的人</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Paper-back" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Paper-back" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode-cn.com/u/dan-chun-de-liu-lang-yi/" title="LeetCode → https:&#x2F;&#x2F;leetcode-cn.com&#x2F;u&#x2F;dan-chun-de-liu-lang-yi&#x2F;" rel="noopener" target="_blank"><i class="mortar-board fa-fw"></i>LeetCode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.bilibili.com/" title="Bilibili → https:&#x2F;&#x2F;www.bilibili.com&#x2F;" rel="noopener" target="_blank"><i class="bathtub fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://paper-back.github.io/2021/10/16/equals%E6%96%B9%E6%B3%95%E4%B8%8E%E7%9B%B8%E7%AD%89%E6%B5%8B%E8%AF%95-hashcode-toString%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="遥山寒">
+      <meta itemprop="description" content="一个单纯的流浪汉和能做决策的人">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杂忘录">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          equals方法与相等测试 hashcode toString方法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-16 10:53:38 / 修改时间：22:52:02" itemprop="dateCreated datePublished" datetime="2021-10-16T10:53:38+08:00">2021-10-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Javase%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Javase笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.3k</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="equals方法与相等测试-hashcode-toString方法"><a href="#equals方法与相等测试-hashcode-toString方法" class="headerlink" title="equals方法与相等测试 hashcode toString方法"></a>equals方法与相等测试 hashcode toString方法</h2><h3 id="equals方法与相等测试"><a href="#equals方法与相等测试" class="headerlink" title="equals方法与相等测试"></a>equals方法与相等测试</h3><p>object类中的equals方法用于检测一个对象是否等于另一个对象。object类中实现它时效果等同于==操作符：确定两个对象引用是否相等。不过，在许多情况下，经常需要基于两个对象的状态检测其相等性，如果两个对象有相等的状态，则认为两个对象是相等的。<br>下面具体讨论调用equals方法进行相等测试的具体操作：</p>
+<span id="more"></span>
+
+<p>**首先需要明确，equals方法是个覆盖方法，签名要与object类中原方法相同</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Emloyee</span></span></span><br><span class="line"><span class="class"></span>&#123;  <span class="comment">//显式参数类型是Empioyee，没有覆盖object类中原方法，而是定义了一个无关的方法。</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span> <span class="params">(Employee other)</span></span>&#123; ...&#125;</span><br><span class="line">   </span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span> <span class="params">(Object other)</span></span>&#123; ...&#125;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面我们用员工示例展示equals方法的实现机制（如果两个员工对象的姓名，薪水和雇佣日期都一样，就认为它们是相等的）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object otherObject)</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">      <span class="comment">// 首先检查两个对象引用是否相同</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span> == otherObject) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">      <span class="comment">// 如果显参引用为null，返回false</span></span><br><span class="line">      <span class="keyword">if</span> (other0bject == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">      <span class="comment">// 如果两个对象不属于同一个类，必然不相等，返回false</span></span><br><span class="line">   <span class="number">1.</span> <span class="keyword">if</span> (getClass() != other0bject.getClass())</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">      <span class="comment">// 现在我们知道otherObject是一个非空Emloyee </span></span><br><span class="line">      Employee other=(Employee) otherObject;</span><br><span class="line">      <span class="comment">// 检测两个对象的状态是否相同</span></span><br><span class="line">   <span class="number">2.</span><span class="comment">// return name.equals(other.name) </span></span><br><span class="line">   <span class="number">3.</span> <span class="keyword">return</span> Object.equals(name,other.name)</span><br><span class="line">         &amp;&amp;salary == other.salary</span><br><span class="line">         &amp;&amp; Object.equals(other.hireDay);</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该过程中有几个值得讨论的方面。</p>
+<ol>
+<li>如果隐式和显式参数不属于同一个类，equals的处理方式是个存在争议的问题。在上例中，<strong>getClass方法返回一个对象所属的类</strong>，如果发现类不匹配会返回就会false。但是，我们经常也会见到使用instanceof进行检测：<br><code>if(!(otherObject instanceof Empoyee) return false;)</code><br>这种方式允许otherObject属于一个子类。随着介绍使用instanceof的麻烦和方便之处：</li>
+</ol>
+<ul>
+<li>Java语言规范要求equals方法具有<strong>对称性：对于任何引用x和y，当且仅当<code>y.equals(x)</code>返回true时，<code>x.equals(y)</code>返回true。</strong> 这当然很合理，你肯定不希望类库实现者一直需要纠结调用<code>y.equals(x)</code>还是<code>x.equals(y)</code>的问题。但是，当参数不属于同一个类的时候会对这个规则产生一些束缚。比如：e是Employee对象，m是一个Manager对象<br><code>e.equals(m)</code>如果用instanceof检测返回true的话，意味着反过来调用：<br><code>m.equals(e)</code>也需要返回true，这就对Manager类受到了束缚，它的equals方法可以将自己与任何一个Employee对象进行比较，而不考虑经理特有的信息。</li>
+<li>在有些情况下，在超类决定相等性概念，子类的对象可以据此进行相等性比较时，instanceof方法则更合适。比如集合：TreeSet 和 Hashset都是AbstactSet的具体子类，只是运用了不同的算法来查找集合元素，无论如何，你肯定希望能够任意比较两个集合。此时getClass就显得有问题，它违反了<strong>替换原则</strong>。</li>
+</ul>
+<ol start="2">
+<li>为了防备name或hireDay可能为null的情况，不直接采用<br><code>return name.equals(other.name)</code>需要使用Objects.equals方法：<blockquote>
+<p>如果两个参数都为null，Objects.equals(a，b)调用将返回true；如果其中一个参数为null，<br>则返回false；否则，如果两个参数都不为null，则调用a.equals(b)。因为比较的是引用变量，a.equals(b)和a==b作用相同</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h3 id="hashCode方法"><a href="#hashCode方法" class="headerlink" title="hashCode方法"></a>hashCode方法</h3><p>散列码（hash code）是由对象导出的一个整形值。equals相同，hashCode方法也定义在Object类中，子类可以覆盖此方法。<br>String类使用的用于散列码的算法是由<strong>内容</strong>导出的。<br>字符串构造器<code>var t = new String(&quot;...&quot;) </code>的散列码计算方式则不同。因为StringBuilder类中没有定义覆盖hashCode方法，而<strong>Object类的默认hashCode方法是从对象的存储地址得出散列码</strong><br>在调用hashCode方法时应注意以下几点：</p>
+<ol>
+<li>如果重新定义了equals方法，就必须重新定义hashCode方法。equals与hashCode的定义必须相同：如果x.equals(y)返回ture，那么x.hashCode()与y.hashCode()返回值相同。</li>
+<li>最好使用null安全的方法Object.hashCode（），如果参数为null，该方法会返回0。</li>
+</ol>
+<hr>
+<h3 id="toString方法"><a href="#toString方法" class="headerlink" title="toString方法"></a>toString方法</h3>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/10/14/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%8D%A2%E6%8A%BD%E8%B1%A1%E7%B1%BB/" rel="prev" title="动态绑定强制转换抽象类">
+                  <i class="fa fa-chevron-left"></i> 动态绑定强制转换抽象类
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">徐学慈</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">13k</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
